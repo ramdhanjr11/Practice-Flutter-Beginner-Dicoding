@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       routes: {
         NewListPage.routeName: (context) => NewListPage(),
       },
-      home: Container(),
     );
   }
 }
