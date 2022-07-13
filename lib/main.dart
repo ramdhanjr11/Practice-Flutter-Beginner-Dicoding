@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/detail_page.dart';
 import 'article.dart';
 
 void main() {
@@ -18,6 +19,12 @@ class MyApp extends StatelessWidget {
       initialRoute: NewListPage.routeName,
       routes: {
         NewListPage.routeName: (context) => NewListPage(),
+        ArticleDetailPage.routeName: (context) => ArticleDetailPage(
+            article: ModalRoute.of(context)?.settings.arguments as Article
+        ),
+        ArticleWebView.routeName: (context) => ArticleWebView(
+          url: ModalRoute.of(context)?.settings.arguments as String,
+        )
       },
     );
   }
@@ -55,6 +62,9 @@ class NewListPage extends StatelessWidget {
       ),
       title: Text(article.title),
       subtitle: Text(article.author),
+      onTap: () {
+        Navigator.pushNamed(context, ArticleDetailPage.routeName, arguments: article);
+      },
     );
   }
 }
