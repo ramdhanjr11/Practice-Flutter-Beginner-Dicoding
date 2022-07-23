@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/detail_page.dart';
-import 'package:news_app/styles.dart';
-import 'article.dart';
-import 'list_page.dart';
+import 'package:news_app/ui/article_detail_page.dart';
+import 'package:news_app/common/styles.dart';
+
+import 'data/model/article.dart';
+import 'ui/article_web_view.dart';
+import 'ui/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,11 +36,15 @@ class MyApp extends StatelessWidget {
               )
             )
           )
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: secondaryColor,
+          unselectedItemColor: Colors.grey
         )
       ),
-      initialRoute: NewListPage.routeName,
+      initialRoute: HomePage.routeName,
       routes: {
-        NewListPage.routeName: (context) => NewListPage(),
+        HomePage.routeName: (context) => HomePage(),
         ArticleDetailPage.routeName: (context) => ArticleDetailPage(
             article: ModalRoute.of(context)?.settings.arguments as Article
         ),
