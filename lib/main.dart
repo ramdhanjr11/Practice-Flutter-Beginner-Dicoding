@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate
       ],
       supportedLocales: const [Locale('id', ''), Locale('en', '')],
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -42,7 +42,11 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.helloWorld,
+              AppLocalizations.of(context)!.helloWorld("M Ramdhan Syahputra"),
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              AppLocalizations.of(context)!.address("Sukabumi", "Indonesia"),
               style: Theme.of(context).textTheme.headline4,
             )
           ],
