@@ -19,13 +19,15 @@ class ArticleDetailPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(article.urlToImage),
+            Hero(
+                tag: article.urlToImage!,
+                child: Image.network(article.urlToImage!)),
             Padding(
               padding: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(article.description),
+                  Text(article.description!),
                   Divider(color: Colors.grey),
                   Text(
                     article.title,
@@ -41,15 +43,16 @@ class ArticleDetailPage extends StatelessWidget {
                   Text('Author: ${article.author}'),
                   Divider(color: Colors.grey),
                   Text(
-                    article.content,
+                    article.content ?? "",
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(
-                      child: Text('Read More'),
-                      onPressed: () {
-                        Navigator.pushNamed(context, ArticleWebView.routeName, arguments: article.url);
-                      },
+                    child: Text('Read More'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, ArticleWebView.routeName,
+                          arguments: article.url);
+                    },
                   )
                 ],
               ),
