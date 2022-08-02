@@ -20,8 +20,9 @@ class ArticleDetailPage extends StatelessWidget {
         child: Column(
           children: [
             Hero(
-                tag: article.urlToImage!,
-                child: Image.network(article.urlToImage!)),
+              tag: article.urlToImage!,
+              child: Image.network(article.urlToImage!),
+            ),
             Padding(
               padding: EdgeInsets.all(10),
               child: Column(
